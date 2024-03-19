@@ -468,7 +468,7 @@ public class MainActivity extends AppCompatActivity {
                         recognizedWords.add(word.word);
                         totalAccuracyScore[0] += word.duration * word.accuracyScore;
                         totalDurations[0] += word.duration;
-                        if (word.errorType != null && word.errorType.equals("None")) {
+                        if (word.errorType != null && "None".equals(word.errorType)) {
                             totalDurations[1] += word.duration + 10;
                         }
                         offsets[1] = word.offset + word.duration + 10;

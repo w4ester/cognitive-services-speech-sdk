@@ -225,7 +225,7 @@ public class Main {
                     break;
                 }
                 System.out.println("\nExecution done. " + prompt);
-            } while (!x.equals("0"));
+            } while (!"0".equals(x));
 
             System.out.println("Finishing demo.");
             System.exit(0);

@@ -685,7 +685,7 @@ public class SpeechRecognitionSamples {
         else if (result.getReason() == ResultReason.NoMatch) {
             AutoDetectSourceLanguageResult autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.fromResult(result);
             String language = autoDetectSourceLanguageResult.getLanguage();
-            if (language == null || language.isEmpty() || language.toLowerCase().equals("unknown")) {
+            if (language == null || language.isEmpty() || "unknown".equals(language.toLowerCase())) {
                 System.out.println(" NOMATCH: Speech Language could not be detected.");
             }
             else {
@@ -750,7 +750,7 @@ public class SpeechRecognitionSamples {
                 System.out.println(" RECOGNIZED: Language = " + language);
             }
             else if (e.getResult().getReason() == ResultReason.NoMatch) {
-                if (language == null || language.isEmpty() || language.toLowerCase().equals("unknown")) {
+                if (language == null || language.isEmpty() || "unknown".equals(language.toLowerCase())) {
                     System.out.println(" NOMATCH: Speech Language could not be detected.");
                 }
                 else {
@@ -839,7 +839,7 @@ public class SpeechRecognitionSamples {
                 System.out.println(" RECOGNIZED: Language = " + language);
             }
             else if (e.getResult().getReason() == ResultReason.NoMatch) {
-                if (language == null || language.isEmpty() || language.toLowerCase().equals("unknown")) {
+                if (language == null || language.isEmpty() || "unknown".equals(language.toLowerCase())) {
                     System.out.println(" NOMATCH: Speech Language could not be detected.");
                 }
                 else {
@@ -943,7 +943,7 @@ public class SpeechRecognitionSamples {
                 System.out.println(" RECOGNIZED: Language = " + language);
             }
             else if (e.getResult().getReason() == ResultReason.NoMatch) {
-                if (language == null || language.isEmpty() || language.toLowerCase().equals("unknown")) {
+                if (language == null || language.isEmpty() || "unknown".equals(language.toLowerCase())) {
                     System.out.println(" NOMATCH: Speech Language could not be detected.");
                 }
                 else {
@@ -1473,7 +1473,7 @@ public class SpeechRecognitionSamples {
             recognizer.recognized.addEventListener((s, e) -> {
                 if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
                     String text = e.getResult().getText();
-                    if(text != null && !text.equals(".")) {
+                    if(text != null && !".".equals(text)) {
                         recognizedTexts.add(text);
                     }
 

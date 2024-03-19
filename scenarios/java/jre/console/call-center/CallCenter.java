@@ -111,13 +111,13 @@ public class CallCenter
         String uri = _userConfig.getSpeechEndpoint().get() + String.format("%s/%s", speechTranscriptionPath, transcriptionId);
         RestResult result = RestHelper.sendGet(uri, _userConfig.getSpeechSubscriptionKey().get(), new int[] { HttpURLConnection.HTTP_OK });
         String status = result.getJson().get("status").getAsString().toLowerCase();
-        if (status.equals("failed"))
+        if ("failed".equals(status))
         {
             throw new Exception(String.format("Unable to transcribe audio input. Response:%s%s", System.lineSeparator(), result.getText()));
         }
         else
         {
-            return status.equals("succeeded");
+            return "succeeded".equals(status);
         }
     }
 
@@ -301,13 +301,13 @@ public class CallCenter
         // https://westus2.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeConversation_JobStatus
         RestResult result = RestHelper.sendGet(conversationAnalysisUrl, _userConfig.getLanguageSubscriptionKey(), new int[] { HttpURLConnection.HTTP_OK });
         String status = result.getJson().get("status").getAsString().toLowerCase();
-        if (status.equals("failed"))
+        if ("failed".equals(status))
         {
             throw new Exception(String.format("Unable to analyze conversation. Response:%s%s", System.lineSeparator(), result.getText()));
         }
         else
         {
-            return status.equals("succeeded");
+            return "succeeded".equals(status);
         }
     }
 

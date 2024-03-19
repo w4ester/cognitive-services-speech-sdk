@@ -59,8 +59,8 @@ public class Main {
         final String subscriptionKey = "YourSubscriptionKey";
         final String region = "YourServiceRegion";
 
-        assert !subscriptionKey.equals("YourSubscriptionKey") : "Replace the string \"YourSubscriptionKey\" with your speech subscription key.";
-        assert !region.equals("YourServiceRegion") : "Replace the string \"YourServiceRegion\" with your service region.";
+        assert !"YourSubscriptionKey".equals(subscriptionKey) : "Replace the string \"YourSubscriptionKey\" with your speech subscription key.";
+        assert !"YourServiceRegion".equals(region) : "Replace the string \"YourServiceRegion\" with your service region.";
 
         // Create a DialogServiceConfig instance from channel secret, subscription key and region
         final DialogServiceConfig dialogServiceConfig = BotFrameworkConfig.fromSubscription(subscriptionKey, region);

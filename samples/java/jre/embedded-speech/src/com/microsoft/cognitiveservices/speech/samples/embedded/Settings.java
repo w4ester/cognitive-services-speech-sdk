@@ -151,17 +151,17 @@ public class Settings
 
         // Add paths for offline data.
         String recognitionModelPath = getSetting("EMBEDDED_SPEECH_RECOGNITION_MODEL_PATH", EmbeddedSpeechRecognitionModelPath);
-        if (!recognitionModelPath.isEmpty() && !recognitionModelPath.equals("YourEmbeddedSpeechRecognitionModelPath"))
+        if (!recognitionModelPath.isEmpty() && !"YourEmbeddedSpeechRecognitionModelPath".equals(recognitionModelPath))
         {
             paths.add(recognitionModelPath);
         }
         String synthesisVoicePath = getSetting("EMBEDDED_SPEECH_SYNTHESIS_VOICE_PATH", EmbeddedSpeechSynthesisVoicePath);
-        if (!synthesisVoicePath.isEmpty() && !synthesisVoicePath.equals("YourEmbeddedSpeechSynthesisVoicePath"))
+        if (!synthesisVoicePath.isEmpty() && !"YourEmbeddedSpeechSynthesisVoicePath".equals(synthesisVoicePath))
         {
             paths.add(synthesisVoicePath);
         }
         String translationModelPath = getSetting("EMBEDDED_SPEECH_TRANSLATION_MODEL_PATH", EmbeddedSpeechTranslationModelPath);
-        if (!translationModelPath.isEmpty() && !translationModelPath.equals("YourEmbeddedSpeechTranslationModelPath"))
+        if (!translationModelPath.isEmpty() && !"YourEmbeddedSpeechTranslationModelPath".equals(translationModelPath))
         {
             paths.add(translationModelPath);
         }
@@ -246,19 +246,19 @@ public class Settings
         System.out.println("Current working directory: " + cwd);
 
         String recognitionModelPath = getSetting("EMBEDDED_SPEECH_RECOGNITION_MODEL_PATH", EmbeddedSpeechRecognitionModelPath);
-        if (recognitionModelPath.isEmpty() || recognitionModelPath.equals("YourEmbeddedSpeechRecognitionModelPath"))
+        if (recognitionModelPath.isEmpty() || "YourEmbeddedSpeechRecognitionModelPath".equals(recognitionModelPath))
         {
             recognitionModelPath = "";
         }
 
         String synthesisVoicePath = getSetting("EMBEDDED_SPEECH_SYNTHESIS_VOICE_PATH", EmbeddedSpeechSynthesisVoicePath);
-        if (synthesisVoicePath.isEmpty() || synthesisVoicePath.equals("YourEmbeddedSpeechSynthesisVoicePath"))
+        if (synthesisVoicePath.isEmpty() || "YourEmbeddedSpeechSynthesisVoicePath".equals(synthesisVoicePath))
         {
             synthesisVoicePath = "";
         }
 
         String translationModelPath = getSetting("EMBEDDED_SPEECH_TRANSLATION_MODEL_PATH", EmbeddedSpeechTranslationModelPath);
-        if (translationModelPath.isEmpty() || translationModelPath.equals("YourEmbeddedSpeechTranslationModelPath"))
+        if (translationModelPath.isEmpty() || "YourEmbeddedSpeechTranslationModelPath".equals(translationModelPath))
         {
             translationModelPath = "";
         }
@@ -272,7 +272,7 @@ public class Settings
             String modelName = getSetting("EMBEDDED_SPEECH_RECOGNITION_MODEL_NAME", EmbeddedSpeechRecognitionModelName);
             String modelLocale = getSetting("SPEECH_RECOGNITION_LOCALE", SpeechRecognitionLocale);
 
-            if (modelName.isEmpty() || modelName.equals("YourEmbeddedSpeechRecognitionModelName"))
+            if (modelName.isEmpty() || "YourEmbeddedSpeechRecognitionModelName".equals(modelName))
             {
                 modelName = ""; // no name given -> search by locale
             }
@@ -309,7 +309,7 @@ public class Settings
             else
             {
                 SpeechRecognitionModelKey = getSetting("EMBEDDED_SPEECH_RECOGNITION_MODEL_KEY", EmbeddedSpeechRecognitionModelKey);
-                if (SpeechRecognitionModelKey.isEmpty() || SpeechRecognitionModelKey.equals("YourEmbeddedSpeechRecognitionModelKey"))
+                if (SpeechRecognitionModelKey.isEmpty() || "YourEmbeddedSpeechRecognitionModelKey".equals(SpeechRecognitionModelKey))
                 {
                     SpeechRecognitionModelKey = "";
                     System.out.println("## WARNING: The key for \"" + SpeechRecognitionModelName + "\" is not set.");
@@ -326,7 +326,7 @@ public class Settings
             String voiceName = getSetting("EMBEDDED_SPEECH_SYNTHESIS_VOICE_NAME", EmbeddedSpeechSynthesisVoiceName);
             String voiceLocale = getSetting("SPEECH_SYNTHESIS_LOCALE", SpeechSynthesisLocale);
 
-            if (voiceName.isEmpty() || voiceName.equals("YourEmbeddedSpeechSynthesisVoiceName"))
+            if (voiceName.isEmpty() || "YourEmbeddedSpeechSynthesisVoiceName".equals(voiceName))
             {
                 voiceName = ""; // no name given -> search by locale
             }
@@ -371,7 +371,7 @@ public class Settings
             else
             {
                 SpeechSynthesisVoiceKey = getSetting("EMBEDDED_SPEECH_SYNTHESIS_VOICE_KEY", EmbeddedSpeechSynthesisVoiceKey);
-                if (SpeechSynthesisVoiceKey.isEmpty() || SpeechSynthesisVoiceKey.equals("YourEmbeddedSpeechSynthesisVoiceKey"))
+                if (SpeechSynthesisVoiceKey.isEmpty() || "YourEmbeddedSpeechSynthesisVoiceKey".equals(SpeechSynthesisVoiceKey))
                 {
                     SpeechSynthesisVoiceKey = "";
                     System.out.println("## WARNING: The key for \"" + SpeechSynthesisVoiceName + "\" is not set.");
@@ -410,7 +410,7 @@ public class Settings
             else
             {
                 SpeechTranslationModelKey = getSetting("EMBEDDED_SPEECH_TRANSLATION_MODEL_KEY", EmbeddedSpeechTranslationModelKey);
-                if (SpeechTranslationModelKey.isEmpty() || SpeechTranslationModelKey.equals("YourEmbeddedSpeechTranslationModelKey"))
+                if (SpeechTranslationModelKey.isEmpty() || "YourEmbeddedSpeechTranslationModelKey".equals(SpeechTranslationModelKey))
                 {
                     SpeechTranslationModelKey = "";
                     System.out.println("## WARNING: The key for \"" + SpeechTranslationModelName + "\" is not set.");
