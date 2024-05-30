@@ -3,6 +3,7 @@
 // Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
 //
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -30,7 +31,7 @@ public class RestHelper {
         StringBuilder response = new StringBuilder();
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
-        while ((line = in.readLine()) != null) {
+        while ((line = BoundedLineReader.readLine(in, 5_000_000)) != null) {
             response.append(line);
         }
         in.close();
@@ -66,7 +67,7 @@ public class RestHelper {
         StringBuilder response = new StringBuilder();
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
-        while ((line = in.readLine()) != null) {
+        while ((line = BoundedLineReader.readLine(in, 5_000_000)) != null) {
             response.append(line);
         }
         in.close();
