@@ -3,6 +3,8 @@
 // Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
 //
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -22,7 +24,7 @@ public class RestHelper {
     }
     
     public static RestResult sendGet (String url_1, String key, int[] expectedStatusCodes) throws Exception {
-        URL url_2 = new URL(url_1);
+        URL url_2 = Urls.create(url_1, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         HttpsURLConnection connection = (HttpsURLConnection) url_2.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -50,7 +52,7 @@ public class RestHelper {
     public static RestResult sendPost (String url_1, String content, String key, int[] expectedStatusCodes) throws Exception {
         byte[] encodedContent = content.getBytes("UTF-8");
 
-        URL url_2 = new URL(url_1);
+        URL url_2 = Urls.create(url_1, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         HttpsURLConnection connection = (HttpsURLConnection) url_2.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
@@ -84,7 +86,7 @@ public class RestHelper {
     }
     
     public static void sendDelete (String url_1, String key, int[] expectedStatusCodes) throws Exception {
-        URL url_2 = new URL(url_1);
+        URL url_2 = Urls.create(url_1, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         HttpsURLConnection connection = (HttpsURLConnection) url_2.openConnection();
         connection.setRequestMethod("DELETE");
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
